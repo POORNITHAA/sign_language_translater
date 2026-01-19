@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISL Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <h1>Indian Sign Language Translator</h1>
+    <p>Multilingual Text to ISL Conversion</p>
+</header>
+
+<main class="container">
+
+    <!-- INPUT FORM -->
+    <form method="POST" class="card">
+
+        <label>Enter Text</label>
+        <input type="text" name="text" placeholder="Type text in any language" required>
+
+        <label>Select Language</label>
+        <select name="language">
+            <option value="auto">Auto Detect</option>
+            <option value="en">English</option>
+            <option value="ta">Tamil</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="ml">Malayalam</option>
+            <option value="kn">Kannada</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+        </select>
+
+        <button type="submit">Translate</button>
+    </form>
+
+    <!-- TRANSLATED TEXT -->
+    {% if translated_text %}
+    <section class="card">
+        <h3>Translated Text (English)</h3>
+        <p class="translated-text">{{ translated_text }}</p>
+    </section>
+    {% endif %}
+
+    <!-- ISL OUTPUT -->
+    {% if images %}
+    <section class="card">
+        <h3>ISL Output</h3>
+        <div class="image-grid">
+            {% for img in images %}
+                <img src="{{ url_for('static', filename=img) }}" alt="ISL Sign">
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 ISL Translator | Flask Project</p>
+</footer>
+
+</body>
+</html>
