@@ -95,8 +95,3 @@ Public information systems
 Educational institutions
 
 Accessibility and awareness tools
-
-
-Make it GDG / hackathon formatted
-
-Just tell me 😊
