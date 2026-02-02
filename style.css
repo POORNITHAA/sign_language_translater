@@ -1,98 +1,72 @@
 * {
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
+    background: #f4f7fb;
     margin: 0;
-    background: #f4f6f8;
-    color: #333;
 }
 
-/* Header */
 .header {
-    background: #1f2937;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
     color: white;
-    padding: 25px;
     text-align: center;
+    padding: 30px;
 }
 
-.header p {
-    opacity: 0.85;
-}
-
-/* Main container */
 .container {
     max-width: 900px;
     margin: 30px auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-/* Card layout */
 .card {
     background: white;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 25px;
+    border-radius: 14px;
     margin-bottom: 25px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-/* Form elements */
-label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 6px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 input, select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 6px;
+    margin-top: 6px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 15px;
 }
 
-button {
+.translate-btn, .mic-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
     background: #2563eb;
     color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
 }
 
-button:hover {
-    background: #1e40af;
+.mic-btn {
+    background: #16a34a;
 }
 
-/* Translated text */
-.translated-text {
-    font-size: 18px;
-    font-weight: 500;
-    color: #2563eb;
-}
-
-/* Images grid */
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 15px;
-    margin-top: 15px;
 }
 
 .image-grid img {
     width: 100%;
-    background: #f9fafb;
+    background: #f1f5f9;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
-/* Footer */
 .footer {
     text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    color: #666;
+    color: #6b7280;
+    padding: 20px;
 }
