@@ -1,12 +1,10 @@
 import os
 from flask import Flask, render_template, request
 from googletrans import Translator
-
 app = Flask(__name__)
 translator = Translator()
 
 def find_image(path_without_ext):
-    """Check PNG first, then JPG"""
     png = path_without_ext + ".png"
     jpg = path_without_ext + ".jpg"
 
@@ -23,20 +21,28 @@ def index():
     translated_text = ""
 
     if request.method == "POST":
-        text = request.form["text"]
-        translated = translator.translate(text, dest="en")
-        translated_text = translated.text.upper()
+        text = request.form.get("text", "").strip()
+        lang = request.form.get("language", "auto")
 
+        # 🛑 SAFETY CHECK (VERY IMPORTANT)
+        if not text:
+            return render_template("index.html", images=[], translated_text="")
+
+        # Translate
+        if lang == "auto":
+            translated = translator.translate(text, dest="en")
+        else:
+            translated = translator.translate(text, src=lang, dest="en")
+
+        translated_text = translated.text.upper()
         words = translated_text.split()
 
         for word in words:
-            # 🟢 1. Try GENERAL WORD sign
             word_img = find_image(f"isl/words/{word.lower()}")
             if word_img:
                 images.append(word_img)
                 continue
 
-            # 🟡 2. Else fallback to letters & numbers
             for char in word:
                 if char.isalpha():
                     img = find_image(f"isl/alphabets/{char}1")
